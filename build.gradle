@@ -30,9 +30,13 @@ dependencies {
 }
 */
 buildscript {
-    repositories { jcenter() }
+    repositories {
+        jcenter()
+        maven { url "http://repo.spring.io/release" }
+    }
     dependencies {
         classpath 'com.netflix.nebula:nebula-release-plugin:4.1.1'
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
 apply plugin: 'nebula.nebula-release'
