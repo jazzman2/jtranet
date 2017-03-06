@@ -1,18 +1,32 @@
 package sk.jazzman.domain.login;
 
 /**
- * Login entity
+ * Implementation of {@link LoginInf}
  *
  * @author Jan Kovalcik
  * @since v0.0.1
  */
-public interface Login {
-    public String getLogin();
+public class Login implements LoginInf {
+    private String login;
+    private String password;
 
-    public void setLogin(String login);
+    @Override
+    public String getLogin() {
+        return login;
+    }
 
-    public String getPassword();
+    @Override
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
-    public void setPassword(String password);
+    @Override
+    public String getPassword() {
+        return password;
+    }
 
+    @Override
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
