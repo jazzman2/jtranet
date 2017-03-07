@@ -1,0 +1,9 @@
+spring:
+ profiles: dev,pro
+
+---
+
+spring:
+ profiles: dev
+server:
+  port: 18080

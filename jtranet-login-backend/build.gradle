@@ -4,10 +4,10 @@ dependencies {
     testCompile("junit:junit:${junitVersion}")
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
 
+    compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
-    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}"){
-
-    }
+//    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}")
     
 
 }
@@ -16,6 +16,10 @@ apply plugin: 'org.springframework.boot'
 
 jar {
     baseName = 'jtranet-login-backend'
+}
+
+springBoot {
+    executable = true
 }
 
 bootRun {
