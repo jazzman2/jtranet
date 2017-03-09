@@ -19,4 +19,5 @@ rootProject.name = 'jtranet'
 include 'jtranet-api'
 include 'jtranet-login-backend'
 include 'jtranet-login-frontend'
+include 'jtranet-domain'
 
