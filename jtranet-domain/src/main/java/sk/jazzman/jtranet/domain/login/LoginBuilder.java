@@ -1,12 +1,11 @@
 package sk.jazzman.jtranet.domain.login;
 
-import sk.jazzman.jtranet.domain.BaseEntity;
-import sk.jazzman.jtranet.domain.BaseEntityBuilder;
+import sk.jazzman.jtranet.domain.BaseEntityBuilderAbt;
 
 /**
  * Created by jano on 3/9/17.
  */
-public class LoginBuilder extends BaseEntityBuilder {
+public class LoginBuilder extends BaseEntityBuilderAbt {
     private String login;
 
     private String password;
@@ -21,6 +20,6 @@ public class LoginBuilder extends BaseEntityBuilder {
 
     @Override
     public Login build() {
-        return new Login(id,createdBy,createdOn,modifiedBy,modifiedOn,login,password);
+        return new Login(id,createdBy,createdOn,login,password);
     }
 }

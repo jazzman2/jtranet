@@ -1,4 +1,4 @@
-package sk.jazzman.jtranet.backend;
+package sk.jazzman.jtranet.login.backend.repositoy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,19 +1,23 @@
 package sk.jazzman.jtranet.domain;
 
-import java.sql.Time;
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
  * Created by jano on 3/9/17.
  */
-public class BaseEntity implements BaseEntityInf {
+@MappedSuperclass
+public abstract class BaseEntityAbt implements PersistedEntityInf, Serializable{
     private final Long id;
 
     private final Long createdBy;
     private final Timestamp createdOn;
-
-    private final Long modifiedBy;
-    private final Timestamp modifiedOn;
 
     /**
      * {@link java.lang.reflect.Constructor}
@@ -21,34 +25,28 @@ public class BaseEntity implements BaseEntityInf {
      * @param id
      * @param createdBy
      * @param createdOn
-     * @param modifiedBy
-     * @param modifiedOn
      */
-    public BaseEntity(Long id, Long createdBy, Timestamp createdOn,Long modifiedBy, Timestamp modifiedOn){
+    public BaseEntityAbt(Long id, Long createdBy, Timestamp createdOn){
         this.id = id;
         this.createdBy = createdBy;
         this.createdOn = createdOn;
-        this.modifiedBy = modifiedBy;
-        this.modifiedOn = modifiedOn;
     }
 
+    @Id
+    @Column(name = "id")
     public Long getId() {
         return id;
     }
 
+    @CreationTimestamp
+    @Column(name = "created_on", nullable = false)
     public Timestamp createdOn() {
         return createdOn;
     }
 
-    public Timestamp getModifiedOn() {
-        return modifiedOn;
-    }
-
+    @Column(name = "created_by")
     public Long createdBy() {
         return createdBy;
     }
 
-    public Long getModifiedBy() {
-        return modifiedBy;
-    }
 }
